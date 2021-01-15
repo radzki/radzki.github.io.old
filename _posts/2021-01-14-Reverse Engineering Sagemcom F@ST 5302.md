@@ -20,11 +20,17 @@ YELLOW ETHERNET
 ###########################
 
 - GET A BASH!
-	 ping 8.8.8.8 -c 1 > /dev/null 2>&1; bash
+All other commands are forbidden, maybe it's redirecting stdout. Who knows...
+We escape this shithole by running bash along with ping, escaping the limited console and GUESS WHAT?? Gaining root access.
+```console
+ping 8.8.8.8 -c 1 > /dev/null 2>&1; bash
+```
 
 - ALL IN ALL YOU'RE JUST ANOTHER BRICK IN THE (FIRE)WALL...
+Enable remote Telnet (better than screen, right?)
+```console
 	iptables -P INPUT ACCEPT; iptables -P FORWARD ACCEPT; iptables -P OUTPUT ACCEPT; iptables -t nat -F; iptables -F; iptables -X
-	
+```
 - I... AM... ROOT!
 	superadmin:1234567gvt
 
@@ -97,6 +103,7 @@ Aumentar velocidade:
 wlctl down; wlctl rate -1; wlctl rateset default; wlctl channel 11; wlctl up
 
 ##########################
+
 We managed to configure it as a router. In my case, I'm using it to receive Internet via WAN (IPoE) and bridge it to the Wi-Fi. 
 
 For an useless router, that basically saved it from trash.
@@ -105,3 +112,14 @@ The huge problem that still remains to be solved:
 
 We have no access to the firmware. This implies on reconfiguration everytime the router reboots.
 How to extract it? JTAG? 
+
+
+Useful links:
+- Reverse engineering F@ST 2704: https://github.com/Mixbo-zz/FaST2704
+- CLI Reference (wan delete service): ftp://ftp.zyxel.fr/ftp_download/P-660HN-51/firmware/P-660HN-51_1.12(AADW.7)C0_2.pdf
+- CLI Reference (in chinese...): http://bbs.mydigit.cn/simple/?t1478045.html
+- GitHub CLI: https://github.com/ad7843/hi/blob/master/cli_cmd.c
+- CLI Rererence (Commands like wlctl): http://ahmedfarazch.blogspot.com/2013/11/ptcltenda-w150d-and-micronet-sp3367nl.html
+- CFE Dump: https://github.com/openwrt-es/cfe-backup/blob/master/cfetool.py
+- Dumping image: https://forum.archive.openwrt.org/viewtopic.php?id=55648
+- Restricted Linux Shell Escaping Techniques: https://fireshellsecurity.team/restricted-linux-shell-escaping-techniques/
