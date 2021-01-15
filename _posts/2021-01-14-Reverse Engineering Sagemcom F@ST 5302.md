@@ -30,6 +30,42 @@ YELLOW ETHERNET
 
 ###########################
 
+Some info....
+
+> CFE version 7.222.1 for BCM96328 (32bit,SP,BE)
+Build Date: Wed Apr  3 15:07:05 CST 2013 (cookiechen@SZ01007.DONGGUAN.CN)
+Copyright (C) 2005-2012 SAGEMCOM Corporation.
+
+HS Serial flash device: name ID_W25X64, id 0xef17 size 8192KB
+Total Flash size: 8192K with 2048 sectors
+Chip ID: BCM6328B0, MIPS: 320MHz, DDR: 320MHz, Bus: 160MHz
+Main Thread: TP0
+Memory Test Passed
+Total Memory: 67108864 bytes (64MB)
+Boot Address: 0xb8000000
+
+Board IP address                  : 192.168.1.1:ffffff00  
+Host IP address                   : 192.168.1.100  
+Gateway IP address                :   
+Run from flash/host (f/h)         : f  
+Default host run file name        : vmlinux  
+Default host flash file name      : bcm963xx_fs_kernel  
+Boot delay (0-9 seconds)          : 1  
+Board Id (0-4)                    : F@ST5302V2  
+Primary AFE ID OVERRIDE           : 0x00000001
+Bonding AFE ID OVERRIDE           : 0x00000002
+Number of MAC Addresses (1-32)    : 11  
+Base MAC Address                  : 2c:39:96:f7:ae:14  
+PSI Size (1-64) KBytes            : 40  
+Enable Backup PSI [0|1]           : 0  
+System Log Size (0-256) KBytes    : 64  
+Main Thread Number [0|1]          : 0  
+Voice Board Configuration (0-0)   : LE89116  
+
+*** Press any key to stop auto run (1 seconds) ***
+
+###########################
+
 - Para LIMPAR config WAN:
 
   wan delete service eth3.0
