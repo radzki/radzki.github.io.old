@@ -7,11 +7,11 @@
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: rdz                          # the main title
+title: radzki                          # the main title
 
-tagline: Notes from hobbying on diverse areas of technology/computer/engineering   # it will display as the sub-title
+tagline: Notes from computer engineering and hacking   # it will display as the sub-title
 
-description: Notes from hobbying on diverse areas of technology/computer/engineering
+description: Notes from computer engineering and hacking
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://radzki.github.io'
