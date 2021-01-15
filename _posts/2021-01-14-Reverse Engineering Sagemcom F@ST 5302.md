@@ -7,9 +7,9 @@ tags: [FAST5302, WIP]
 
 ***
 
-## Sherlock Holmes Time
+# Sherlock Holmes Time
 
-#### Locating the UART on the board (positions):
+### Locating the UART on the board (positions):
 Looking at the PCB, you will see something like this:
 
 > LEDS (FRONT)
@@ -26,7 +26,7 @@ Looking at the PCB, you will see something like this:
 
 ***
 
-#### CONNECTING
+### CONNECTING
 
 Using an USB/TTL adapter or even an Arduino with RST shorted to GND you can connect to the board's UART.
 
@@ -36,7 +36,7 @@ screen -L /dev/ttyUSB0 115200
 
 -L is for logging. Quite useful.
 
-#### GET A BASH!
+### GET A BASH!
 
 After you get a tty, you will notice that all default commands you would find on busybox or whatever are forbidden, maybe it's redirecting the stdout. Who knows...
 
@@ -45,12 +45,12 @@ Anyway, we can escape from this cage by using a little trick: running bash along
 ping 8.8.8.8 -c 1 > /dev/null 2>&1; bash
 ```
 
-#### ALL IN ALL YOU'RE JUST ANOTHER BRICK IN THE (FIRE)WALL...
+### ALL IN ALL YOU'RE JUST ANOTHER BRICK IN THE (FIRE)WALL...
 Enable remote Telnet (better than using screen, right?)
 ```console
 iptables -P INPUT ACCEPT; iptables -P FORWARD ACCEPT; iptables -P OUTPUT ACCEPT; iptables -t nat -F; iptables -F; iptables -X
 ```
-#### I... AM... ROOT!
+### I... AM... ROOT!
 There are 2 ways of obtaining the password on this router:
 1. Cracking the password on /etc/passwd with John the Ripper (A little hard)
 
