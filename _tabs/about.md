@@ -13,7 +13,7 @@ order: 4
 ***
 
 
-![Desktop View](https://instagram.fpoa2-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p750x750/57353150_2646391492043148_1048035053195811320_n.jpg?_nc_ht=instagram.fpoa2-1.fna.fbcdn.net&_nc_cat=100&_nc_ohc=rAsP1WhafDMAX--vxEV&tp=1&oh=d24f1932d7f4428748651497cf9481d5&oe=602C6C48){: width="250" .right}
+![Desktop View](https://instagram.fpoa2-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p750x750/57353150_2646391492043148_1048035053195811320_n.jpg?_nc_ht=instagram.fpoa2-1.fna.fbcdn.net&_nc_cat=100&_nc_ohc=rAsP1WhafDMAX--vxEV&tp=1&oh=d24f1932d7f4428748651497cf9481d5&oe=602C6C48){: width="250"}
 
 ### Gabriel Radzki
 * gabriel.radzki@gmail.com
