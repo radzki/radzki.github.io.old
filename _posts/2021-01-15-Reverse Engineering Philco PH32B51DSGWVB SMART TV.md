@@ -554,7 +554,7 @@ Let's go back to GHidra.
 
 After some further investigation, it turned out that YouTube runs on ANOTHER BROWSER!
 
-```ghidra decompiled
+```
 SwitchToYoutube()
 
 execQtTestBrowser.sh -useragent %s -no-loading-status -remote-inspector-port 9222 -service-type youtube http://www.youtube.com/tv
@@ -562,7 +562,7 @@ execQtTestBrowser.sh -useragent %s -no-loading-status -remote-inspector-port 922
 
 Well, it appears that Flickr service also uses QtBrowser. So we replace Flick URL with SS-IPTV URL. I didn't replace YouTube's because it actually works and my grandpa uses it, hehe.
 
-```ghidra new function
+```
 SwitchToFlickr()
 
 execQtTestBrowser.sh -useragent %s -no-loading-status -remote-inspector-port 9222 -service-type youtube http://app.ss-iptv.com/
