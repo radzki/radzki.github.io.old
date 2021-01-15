@@ -5,38 +5,67 @@ categories: [Reverse Engineering, Embedded]
 tags: [FAST5302, WIP]
 ---
 
-Locating the UART on the board:
+***
 
-HEATSINK
+## Sherlock Holmes Time
 
+#### Locating the UART on the board (positions):
+Looking at the PCB, you will see something like this:
+
+(Front)
+
+=> CPU HEAT SINK <=
+
+(4 pins)
 - RX
 - TX
 - GND
 - 3v3
 
-YELLOW ETHERNET
+=> YELLOW ETHERNET PORTS <=
 
+(Back)
+***
 
-###########################
+#### CONNECTING
 
-- GET A BASH!
-All other commands are forbidden, maybe it's redirecting stdout. Who knows...
-We escape this shithole by running bash along with ping, escaping the limited console and GUESS WHAT?? Gaining root access.
-```console
+Using an USB/TTL adapter or even an Arduino with RST shorted to GND you can connect to the board's UART.
+
+```
+screen -L /dev/ttyUSB0 115200
+```
+
+-L is for logging. Quite useful.
+
+#### GET A BASH!
+
+After you get a tty, you will notice that all default commands you would find on busybox or whatever are forbidden, maybe it's redirecting the stdout. Who knows...
+
+Anyway, we can escape from this cage by using a little trick: running bash along with ping, escaping the limited console and... GUESS WHAT?? Gaining root access.
+```
 ping 8.8.8.8 -c 1 > /dev/null 2>&1; bash
 ```
 
-- ALL IN ALL YOU'RE JUST ANOTHER BRICK IN THE (FIRE)WALL...
-Enable remote Telnet (better than screen, right?)
-```console
-	iptables -P INPUT ACCEPT; iptables -P FORWARD ACCEPT; iptables -P OUTPUT ACCEPT; iptables -t nat -F; iptables -F; iptables -X
+#### ALL IN ALL YOU'RE JUST ANOTHER BRICK IN THE (FIRE)WALL...
+Enable remote Telnet (better than using screen, right?)
 ```
-- I... AM... ROOT!
-	superadmin:1234567gvt
+iptables -P INPUT ACCEPT; iptables -P FORWARD ACCEPT; iptables -P OUTPUT ACCEPT; iptables -t nat -F; iptables -F; iptables -X
+```
+#### I... AM... ROOT!
+There are 2 ways of obtaining the password on this router:
+1. Cracking the password on /etc/passwd with John the Ripper (A little hard)
 
-###########################
+2. Investigating the HTML Source Code on the router's Web Page (Easy)
 
-Some info....
+Choose whatever floats your boat.
+
+```
+superadmin:1234567gvt
+```
+
+***
+
+### TTY Output:
 
 ```console
 CFE version 7.222.1 for BCM96328 (32bit,SP,BE)
@@ -71,55 +100,78 @@ Voice Board Configuration (0-0)   : LE89116
 
 *** Press any key to stop auto run (1 seconds) ***
 ```
-###########################
 
-- Para LIMPAR config WAN:
+***
 
-  wan delete service eth3.0
+### Useful router commands
 
-- Para configurar modo WAN (escolha um deles):
+#### Cleaning WAN config
 
-  wan add service eth3 --protocol ipoe --firewall disable --nat enable --igmp enable --dhcpclient enable
+```
+wan delete service eth3.0
+```
 
-  #wan add service eth3 --protocol ipoe --firewall disable --nat enable --igmp enable --dhcpclient enable --gatewayifname eth3.0 --dnsifname eth3.0
+#### WAN configuration:
 
-  #wan add service eth3 --protocol ipoe --firewall disable --nat disable --igmp enable --dhcpclient enable --gatewayifname eth3.0 --dnsifname eth3.0	
+```
+wan add service eth3 --protocol ipoe --firewall disable --nat enable --igmp enable --dhcpclient enable
+```
 
-  #wan add service eth3 --protocol ipoe --firewall disable --nat disable --igmp enable --dhcpclient disable --ipaddr 192.168.2.50 255.255.255.0 --gatewayifname eth3.0 --dnsifname eth3.0
+#### Default Gateway
 
-  defaultgateway show
+```
+defaultgateway show
+```
 
-  defaultgateway config eth3.0
-  dns config static 8.8.8.8 8.8.4.4
+```
+defaultgateway config eth3.0
+```
 
-- Para o computador HOST
+#### Static DNS
 
-  sudo ip route add 192.168.2.0/24 via 192.168.25.1 dev wlp2s0
+```
+dns config static 8.8.8.8 8.8.4.4
+```
 
-##########################
+#### This is for the client PC, if you are having trouble getting the right route
 
-Aumentar velocidade:
+```
+sudo ip route add 192.168.2.0/24 via 192.168.25.1 dev wlp2s0
+```
 
+***
+
+### Bandwidth
+
+This router ISP firmware has a 10Mbps limitation on the wi-fi :(
+
+To remove it (and also set the channel you want to...):
+
+```
 wlctl down; wlctl rate -1; wlctl rateset default; wlctl channel 11; wlctl up
+```
 
-##########################
+***
 
-We managed to configure it as a router. In my case, I'm using it to receive Internet via WAN (IPoE) and bridge it to the Wi-Fi. 
+# WIP
+
+We managed to configure it as a router. In my case, I'm using it to receive Internet via WAN (IPoE) and bridge it to the Wi-Fi.
 
 For an useless router, that basically saved it from trash.
 
 The huge problem that still remains to be solved:
 
 We have no access to the firmware. This implies on reconfiguration everytime the router reboots.
-How to extract it? JTAG? 
+How to extract it? JTAG?
 
+***
 
-Useful links:
-- Reverse engineering F@ST 2704: https://github.com/Mixbo-zz/FaST2704
-- CLI Reference (wan delete service): ftp://ftp.zyxel.fr/ftp_download/P-660HN-51/firmware/P-660HN-51_1.12(AADW.7)C0_2.pdf
-- CLI Reference (in chinese...): http://bbs.mydigit.cn/simple/?t1478045.html
-- GitHub CLI: https://github.com/ad7843/hi/blob/master/cli_cmd.c
-- CLI Rererence (Commands like wlctl): http://ahmedfarazch.blogspot.com/2013/11/ptcltenda-w150d-and-micronet-sp3367nl.html
-- CFE Dump: https://github.com/openwrt-es/cfe-backup/blob/master/cfetool.py
-- Dumping image: https://forum.archive.openwrt.org/viewtopic.php?id=55648
-- Restricted Linux Shell Escaping Techniques: https://fireshellsecurity.team/restricted-linux-shell-escaping-techniques/
+### Useful links:
+- [Reverse engineering F@ST 2704] https://github.com/Mixbo-zz/FaST2704
+- [CLI Reference (wan delete service)] ftp://ftp.zyxel.fr/ftp_download/P-660HN-51/firmware/P-660HN-51_1.12(AADW.7)C0_2.pdf
+- [CLI Reference (in chinese...)] http://bbs.mydigit.cn/simple/?t1478045.html
+- [GitHub CLI] https://github.com/ad7843/hi/blob/master/cli_cmd.c
+- [CLI Rererence (Commands like wlctl)] http://ahmedfarazch.blogspot.com/2013/11/ptcltenda-w150d-and-micronet-sp3367nl.html
+- [CFE Dump] https://github.com/openwrt-es/cfe-backup/blob/master/cfetool.py
+- [Dumping image:] https://forum.archive.openwrt.org/viewtopic.php?id=55648
+- [Restricted Linux Shell Escaping Techniques] https://fireshellsecurity.team/restricted-linux-shell-escaping-techniques/
