@@ -30,7 +30,7 @@ Looking at the PCB, you will see something like this:
 
 Using an USB/TTL adapter or even an Arduino with RST shorted to GND you can connect to the board's UART.
 
-```
+```console
 screen -L /dev/ttyUSB0 115200
 ```
 
@@ -41,13 +41,13 @@ screen -L /dev/ttyUSB0 115200
 After you get a tty, you will notice that all default commands you would find on busybox or whatever are forbidden, maybe it's redirecting the stdout. Who knows...
 
 Anyway, we can escape from this cage by using a little trick: running bash along with ping, escaping the limited console and... GUESS WHAT?? Gaining root access.
-```
+```console
 ping 8.8.8.8 -c 1 > /dev/null 2>&1; bash
 ```
 
 #### ALL IN ALL YOU'RE JUST ANOTHER BRICK IN THE (FIRE)WALL...
 Enable remote Telnet (better than using screen, right?)
-```
+```console
 iptables -P INPUT ACCEPT; iptables -P FORWARD ACCEPT; iptables -P OUTPUT ACCEPT; iptables -t nat -F; iptables -F; iptables -X
 ```
 #### I... AM... ROOT!
@@ -106,35 +106,35 @@ Voice Board Configuration (0-0)   : LE89116
 
 #### Cleaning WAN config
 
-```
+```console
 wan delete service eth3.0
 ```
 
 #### WAN configuration:
 
-```
+```console
 wan add service eth3 --protocol ipoe --firewall disable --nat enable --igmp enable --dhcpclient enable
 ```
 
 #### Default Gateway
 
-```
+```console
 defaultgateway show
 ```
 
-```
+```console
 defaultgateway config eth3.0
 ```
 
 #### Static DNS
 
-```
+```console
 dns config static 8.8.8.8 8.8.4.4
 ```
 
 #### This is for the client PC, if you are having trouble getting the right route
 
-```
+```console
 sudo ip route add 192.168.2.0/24 via 192.168.25.1 dev wlp2s0
 ```
 
@@ -146,7 +146,7 @@ This router ISP firmware has a 10Mbps limitation on the wi-fi :(
 
 To remove it (and also set the channel you want to...):
 
-```
+```console
 wlctl down; wlctl rate -1; wlctl rateset default; wlctl channel 11; wlctl up
 ```
 
