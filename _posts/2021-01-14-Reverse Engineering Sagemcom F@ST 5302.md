@@ -5,7 +5,7 @@ categories: [Reverse Engineering, Embedded]
 tags: [FAST5302, WIP]
 ---
 
-UART on the board:
+Locating the UART on the board:
 
 HEATSINK
 
