@@ -7,14 +7,12 @@
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: Radzki Notes                          # the main title
+title: rdz                          # the main title
 
 tagline: Notes from hobbying on diverse areas of technology/computer/engineering   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, portfolio, sidebar,
-  bootstrap Jekyll theme with responsive web design
-  and focuses on text presentation.
+  Notes from hobbying on diverse areas of technology/computer/engineering
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://radzki.github.io'
@@ -79,7 +77,7 @@ disqus:
 #
 #     dark   - Use the dark color scheme
 #
-theme_mode:   # [light|dark]
+theme_mode:   # [dark|light]
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
