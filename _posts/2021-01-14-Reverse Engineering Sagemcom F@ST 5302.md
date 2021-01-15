@@ -12,19 +12,18 @@ tags: [FAST5302, WIP]
 #### Locating the UART on the board (positions):
 Looking at the PCB, you will see something like this:
 
-(Front)
+> LEDS (FRONT)
 
-=> CPU HEAT SINK <=
+> CPU HEAT SINK
 
-(4 pins)
+> (4 pin UART)
 - RX
 - TX
 - GND
 - 3v3
 
-=> YELLOW ETHERNET PORTS <=
+> YELLOW ETHERNET PORTS (BACK)
 
-(Back)
 ***
 
 #### CONNECTING
