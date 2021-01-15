@@ -11,8 +11,7 @@ title: rdz                          # the main title
 
 tagline: Notes from hobbying on diverse areas of technology/computer/engineering   # it will display as the sub-title
 
-description: >-                        # used by seo meta and the atom feed
-  Notes from hobbying on diverse areas of technology/computer/engineering
+description: Notes from hobbying on diverse areas of technology/computer/engineering
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://radzki.github.io'
