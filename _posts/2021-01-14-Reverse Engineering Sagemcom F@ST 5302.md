@@ -1,5 +1,5 @@
 ---
-title: Reverse Engineering Sagemcom F@ST 5302 - WIP
+title: Reverse Engineering Sagemcom F@ST 5302 [WIP]
 date: 2021-01-14 22:33:31 -0300
 categories: [Reverse Engineering, Embedded]
 tags: [FAST5302, WIP]
