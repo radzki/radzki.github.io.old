@@ -1,8 +1,8 @@
 ---
-title: Reverse Engineering Sagemcom F@ST 5302
+title: Reverse Engineering Sagemcom F@ST 5302 - WIP
 date: 2021-01-14 22:33:31 -0300
 categories: [Reverse Engineering, Embedded]
-tags: [FAST5302]
+tags: [FAST5302, WIP]
 ---
 
 UART on the board:
@@ -95,3 +95,13 @@ Voice Board Configuration (0-0)   : LE89116
 Aumentar velocidade:
 
 wlctl down; wlctl rate -1; wlctl rateset default; wlctl channel 11; wlctl up
+
+##########################
+We managed to configure it as a router. In my case, I'm using it to receive Internet via WAN (IPoE) and bridge it to the Wi-Fi. 
+
+For an useless router, that basically saved it from trash.
+
+The huge problem that still remains to be solved:
+
+We have no access to the firmware. This implies on reconfiguration everytime the router reboots.
+How to extract it? JTAG? 
