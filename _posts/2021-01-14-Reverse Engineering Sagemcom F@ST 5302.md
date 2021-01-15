@@ -9,7 +9,7 @@ tags: [FAST5302, WIP]
 
 # Sherlock Holmes Time
 
-### Locating the UART on the board (positions):
+### **Locating the UART on the board (positions)**:
 Looking at the PCB, you will see something like this:
 
 > LEDS (FRONT)
@@ -26,7 +26,7 @@ Looking at the PCB, you will see something like this:
 
 ***
 
-### CONNECTING
+### **CONNECTING**
 
 Using an USB/TTL adapter or even an Arduino with RST shorted to GND you can connect to the board's UART.
 
@@ -36,7 +36,7 @@ screen -L /dev/ttyUSB0 115200
 
 -L is for logging. Quite useful.
 
-### GET A BASH!
+### **GET A BASH!**
 
 After you get a tty, you will notice that all default commands you would find on busybox or whatever are forbidden, maybe it's redirecting the stdout. Who knows...
 
@@ -45,12 +45,12 @@ Anyway, we can escape from this cage by using a little trick: running bash along
 ping 8.8.8.8 -c 1 > /dev/null 2>&1; bash
 ```
 
-### ALL IN ALL YOU'RE JUST ANOTHER BRICK IN THE (FIRE)WALL...
+### **ALL IN ALL YOU'RE JUST ANOTHER BRICK IN THE (FIRE)WALL...**
 Enable remote Telnet (better than using screen, right?)
 ```console
 iptables -P INPUT ACCEPT; iptables -P FORWARD ACCEPT; iptables -P OUTPUT ACCEPT; iptables -t nat -F; iptables -F; iptables -X
 ```
-### I... AM... ROOT!
+### **I... AM... ROOT!**
 There are 2 ways of obtaining the password on this router:
 1. Cracking the password on /etc/passwd with John the Ripper (A little hard)
 
@@ -64,7 +64,7 @@ superadmin:1234567gvt
 
 ***
 
-### TTY Output:
+### **TTY Output:**
 
 ```console
 CFE version 7.222.1 for BCM96328 (32bit,SP,BE)
@@ -102,7 +102,7 @@ Voice Board Configuration (0-0)   : LE89116
 
 ***
 
-### Useful router commands
+### **Useful router commands**
 
 #### Cleaning WAN config
 
@@ -140,7 +140,7 @@ sudo ip route add 192.168.2.0/24 via 192.168.25.1 dev wlp2s0
 
 ***
 
-### Bandwidth
+### **Bandwidth**
 
 This router ISP firmware has a 10Mbps limitation on the wi-fi :(
 
@@ -152,7 +152,7 @@ wlctl down; wlctl rate -1; wlctl rateset default; wlctl channel 11; wlctl up
 
 ***
 
-# WIP
+# **WIP**
 
 We managed to configure it as a router. In my case, I'm using it to receive Internet via WAN (IPoE) and bridge it to the Wi-Fi.
 
@@ -165,7 +165,7 @@ How to extract it? JTAG?
 
 ***
 
-### Useful links:
+### **Useful links**:
 - [Reverse engineering F@ST 2704] https://github.com/Mixbo-zz/FaST2704
 - [CLI Reference (wan delete service)] ftp://ftp.zyxel.fr/ftp_download/P-660HN-51/firmware/P-660HN-51_1.12(AADW.7)C0_2.pdf
 - [CLI Reference (in chinese...)] http://bbs.mydigit.cn/simple/?t1478045.html
