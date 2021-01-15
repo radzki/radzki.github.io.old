@@ -32,7 +32,8 @@ YELLOW ETHERNET
 
 Some info....
 
-> CFE version 7.222.1 for BCM96328 (32bit,SP,BE)
+```console
+CFE version 7.222.1 for BCM96328 (32bit,SP,BE)
 Build Date: Wed Apr  3 15:07:05 CST 2013 (cookiechen@SZ01007.DONGGUAN.CN)
 Copyright (C) 2005-2012 SAGEMCOM Corporation.
 
@@ -63,7 +64,7 @@ Main Thread Number [0|1]          : 0
 Voice Board Configuration (0-0)   : LE89116  
 
 *** Press any key to stop auto run (1 seconds) ***
-
+```
 ###########################
 
 - Para LIMPAR config WAN:
