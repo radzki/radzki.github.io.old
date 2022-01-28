@@ -18,5 +18,5 @@ order: 4
 
 ### Gabriel Radzki
 * gabriel.radzki@gmail.com
-* Computer Engineering
+* Computer Engineer
 * Pontifical Catholic University of Rio Grande do Sul (PUCRS)
