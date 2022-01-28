@@ -13,7 +13,8 @@ order: 4
 ***
 
 
-![Desktop View](https://i.postimg.cc/HTCB4Xv1/profile.jpg?dl=1){: width="250"}
+![Desktop View](https://i.postimg.cc/B4QptJFS/3.png?dl=1){: width="800"}
+![Desktop View](https://i.postimg.cc/k9ywn2BY/4.png?dl=1){: width="800"}
 
 ### Gabriel Radzki
 * gabriel.radzki@gmail.com
